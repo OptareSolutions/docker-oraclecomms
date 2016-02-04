@@ -1,0 +1,15 @@
+[ENGINE]
+
+#DO NOT CHANGE THIS.
+Response File Version=1.0.0.0.0
+
+[GENERIC]
+
+#The oracle home location. This can be an existing Oracle Home or a new Oracle Home
+ORACLE_HOME=/u01/oracle/ocsg
+
+#Set this variable value to the Installation Type selected. e.g. OCSG_Admin, OCSG_NT, Portal, OCSG_AT.
+INSTALL_TYPE=OCSG_Admin
+
+
+

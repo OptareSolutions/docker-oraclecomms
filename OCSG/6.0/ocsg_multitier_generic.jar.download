@@ -1,0 +1,7 @@
+# Oracle Communications Services Gatekeeper 6.0 Multi-tier Software
+# ===
+# 1. Go to https://edelivery.oracle.com/osdc/faces/Home.jspx
+# 2. Download the Oracle Communications Services Gatekeeper 6.0 Multi-tier Software
+# 3. Drop the unziped file ocsg_multitier_generic.jar in the same folder as this file
+#
+9dc9e82f6642dc666ab9c00585941519  ocsg_multitier_generic.jar
