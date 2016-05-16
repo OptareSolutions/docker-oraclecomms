@@ -1,0 +1,12 @@
+version: '2'
+services:
+  ocsgadmin:
+    image: netapps/ocsg:6.0
+    ports:
+      - "7001:7001"
+    depends_on:
+      - mysqldb
+    links:
+      - mysqldb
+  mysqldb:
+    image: mysql:5.6

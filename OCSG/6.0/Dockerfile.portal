@@ -38,7 +38,7 @@ ENV PATH $PATH:/u01/oracle/ocsg/wlserver/common/bin:/u01/oracle/ocsg/user_projec
 # WLS Configuration
 # -------------------------------
 ENV ADMIN_PASSWORD welcome1
-ENV ADMIN_PORT 7001
+ENV ADMIN_PORT 8001
 ENV NM_PORT 5556
 ENV MS_PORT 8001
 ENV SIP_PORT 5060
@@ -58,7 +58,6 @@ RUN mkdir /u01 && \
 # Copy packages
 COPY $OCSG_PKG /u01/
 COPY $JAVA_RPM /u01/
-COPY install.file /u01/
 COPY installportal.file /u01/
 COPY oraInst.loc /u01/
 COPY container-scripts/* /u01/oracle/
@@ -86,18 +85,11 @@ USER oracle
 
 # Installation of OCSG
 RUN mkdir /u01/oracle/.inventory
-RUN java -jar $OCSG_PKG -ignoreSysPrereqs -novalidation -silent -responseFile /u01/install.file -invPtrLoc /u01/oraInst.loc -jreLoc $JAVA_HOME
 RUN java -jar $OCSG_PKG -ignoreSysPrereqs -novalidation -silent -responseFile /u01/installportal.file -invPtrLoc /u01/oraInst.loc -jreLoc $JAVA_HOME
 
 # Configuration of WLS Domain
 WORKDIR /u01/oracle/ocsg
-RUN /u01/oracle/ocsg/wlserver/common/bin/wlst.sh -skipWLSModuleScanning /u01/oracle/ocsg-domain.py && \
-    mkdir -p /u01/oracle/ocsg/user_projects/domains/ocsg-domain/servers/AdminServer/security && \
-    echo "username=weblogic" > /u01/oracle/ocsg/user_projects/domains/ocsg-domain/servers/AdminServer/security/boot.properties && \
-    echo "password=$ADMIN_PASSWORD" >> /u01/oracle/ocsg/user_projects/domains/ocsg-domain/servers/AdminServer/security/boot.properties && \
-    echo ". /u01/oracle/ocsg/user_projects/domains/ocsg-domain/bin/setDomainEnv.sh" >> /u01/oracle/.bashrc && \
-    echo "export PATH=$PATH:/u01/oracle/ocsg/wlserver/common/bin:/u01/oracle/ocsg/user_projects/domains/ocsg-domain/bin" >> /u01/oracle/.bashrc && \
-    sed -i 's#<source-path>/applications#<source-path>/u01/oracle/ocsg/ocsg/applications#g' /u01/oracle/ocsg/user_projects/domains/ocsg-domain/config/config.xml
+# RUN /u01/oracle/ocsg/wlserver/common/bin/wlst.sh -skipWLSModuleScanning /u01/oracle/ocsg-domain.py && \
 
 # Delete files
 #rm /u01/oracle/ocsg-domain.py
