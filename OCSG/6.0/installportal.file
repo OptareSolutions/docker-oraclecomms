@@ -9,8 +9,8 @@ Response File Version=1.0.0.0.0
 ORACLE_HOME=/u01/oracle/ocsg
 
 #Set this variable value to the Installation Type selected. e.g. OCSG_Admin, OCSG_NT, Portal, OCSG_AT.
-INSTALL_TYPE=OCSG_Admin
+INSTALL_TYPE=Portal
 
 #
-PORTAL_BACKEND_SERVERS=ocsg-portal:8001
+PORTAL_BACKEND_SERVERS=ocsg6:7001
 
