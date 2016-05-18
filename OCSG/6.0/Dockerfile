@@ -101,7 +101,7 @@ RUN /u01/oracle/ocsg/wlserver/common/bin/wlst.sh -skipWLSModuleScanning /u01/ora
     cp /u01/oracle/ocsg/ocsg/applications/apimgmtportal-* /u01/oracle/ocsg/user_projects/domains/ocsg-domain/autodeploy
 
 # Delete files
-RUN rm -f /u01/oracle/ocsg-domain.p y/u01/$OCSG_PKG /u01/oraInst.loc /u01/install.file /u01/installportal.file
+RUN rm -f /u01/oracle/ocsg-domain.py /u01/$OCSG_PKG /u01/oraInst.loc /u01/install.file /u01/installportal.file
 
 # Expose Node Manager default port, and also default http/https ports for admin console
 EXPOSE $NM_PORT $ADMIN_PORT $MS_PORT
