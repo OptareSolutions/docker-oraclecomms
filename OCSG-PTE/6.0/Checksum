@@ -1,0 +1,13 @@
+# Download this package from Oracle
+# ====
+#  - http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.htm
+#
+b516630a940d83b066cf1e6479ec59fe  jdk-7u80-linux-x64.rpm
+
+# Oracle Communications Services Gatekeeper 6.0 Platform Test Environment
+# ===
+# 1. Go to https://edelivery.oracle.com/osdc/faces/Home.jspx
+# 2. Download the Oracle Communications Services Gatekeeper 6.0 Platform Test Environment
+# 3. Drop the unziped file ocsg_pte_generic.jar in the same folder as this file
+#
+05727a45a5afdd16b3841e49abd85b1c  ocsg_pte_generic.jar

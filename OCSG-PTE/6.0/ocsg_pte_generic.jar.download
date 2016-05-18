@@ -1,0 +1,7 @@
+# Oracle Communications Services Gatekeeper 6.0 Platform Test Environment
+# ===
+# 1. Go to https://edelivery.oracle.com/osdc/faces/Home.jspx
+# 2. Download the Oracle Communications Services Gatekeeper 6.0 Platform Test Environment
+# 3. Drop the unziped file ocsg_pte_generic.jar in the same folder as this file
+#
+05727a45a5afdd16b3841e49abd85b1c  ocsg_pte_generic.jar

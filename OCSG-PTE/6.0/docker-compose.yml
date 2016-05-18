@@ -17,3 +17,12 @@ services:
       - MYSQL_DATABASE=ocsg
       - MYSQL_USER=ocsg
       - MYSQL_PASSWORD=ocsg
+  ocsg6pte:
+    image: netapps/ocsgpte:6.0
+    ports:
+      - "5900:5900"
+    depends_on:
+      - ocsg6
+    links:
+      - ocsg6
+      - mysqldb
