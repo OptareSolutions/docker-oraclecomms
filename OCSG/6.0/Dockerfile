@@ -16,7 +16,7 @@
 # -----------------------
 # Put all downloaded files in the same directory as this Dockerfile
 # Run:
-#      $ sudo docker build -t oracle/ocsg:6.0 .
+#      $ sudo docker build -t netapps/ocsg:6.0 .
 #
 # Pull base image
 # ---------------
@@ -97,12 +97,11 @@ RUN /u01/oracle/ocsg/wlserver/common/bin/wlst.sh -skipWLSModuleScanning /u01/ora
     echo "password=$ADMIN_PASSWORD" >> /u01/oracle/ocsg/user_projects/domains/ocsg-domain/servers/AdminServer/security/boot.properties && \
     echo ". /u01/oracle/ocsg/user_projects/domains/ocsg-domain/bin/setDomainEnv.sh" >> /u01/oracle/.bashrc && \
     echo "export PATH=$PATH:/u01/oracle/ocsg/wlserver/common/bin:/u01/oracle/ocsg/user_projects/domains/ocsg-domain/bin" >> /u01/oracle/.bashrc && \
-    sed -i 's#<source-path>/applications#<source-path>/u01/oracle/ocsg/ocsg/applications#g' /u01/oracle/ocsg/user_projects/domains/ocsg-domain/config/config.xml
+    sed -i 's#<source-path>/applications#<source-path>/u01/oracle/ocsg/ocsg/applications#g' /u01/oracle/ocsg/user_projects/domains/ocsg-domain/config/config.xml && \
+    cp /u01/oracle/ocsg/ocsg/applications/apimgmtportal-* /u01/oracle/ocsg/user_projects/domains/ocsg-domain/autodeploy
 
 # Delete files
-#rm /u01/oracle/ocsg-domain.py
-#rm $OCSG_PKG /u01/oraInst.loc /u01/install.file
-#rm /u01/install.file  /u01/ocsg_multitier_generic.jar  /u01/oraInst.loc
+RUN rm -f /u01/oracle/ocsg-domain.p y/u01/$OCSG_PKG /u01/oraInst.loc /u01/install.file /u01/installportal.file
 
 # Expose Node Manager default port, and also default http/https ports for admin console
 EXPOSE $NM_PORT $ADMIN_PORT $MS_PORT
